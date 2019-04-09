@@ -5,6 +5,9 @@
   "author": "kglowiak",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.3",
+    "html-webpack-plugin": "^3.2.0",
     "ts-loader": "^5.3.3",
     "typescript": "^3.4.2",
     "webpack": "^4.29.6",
@@ -12,5 +15,9 @@
   },
   "scripts": {
     "start": "webpack --mode development"
+  },
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
