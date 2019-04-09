@@ -1,0 +1,7 @@
+{
+  "name": "react-typescript-test-app",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "kglowiak",
+  "license": "MIT"
+}
