@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
 
-const reducers = {};
+import { jobs } from './jobs/reducer';
+
+const reducers = { jobs };
 
 export const rootReducer = combineReducers(reducers);
