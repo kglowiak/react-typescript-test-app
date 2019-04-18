@@ -6,8 +6,8 @@ const axiosCustom = axios.create({
   baseURL: API_URL,
 });
 
-export const post = (url: string, payload: object) =>
+export const get = (url: string) =>
   axiosCustom
-    .post(url, payload)
+    .get(url)
     .then((res: any) => res.data)
     .catch((err: any) => Promise.reject(err));

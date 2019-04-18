@@ -9,3 +9,13 @@ export const createActionType = (type: string): ActionType => ({
   success: `${type}_SUCCESS`,
   started: `${type}_STARTED`,
 });
+
+export type Action<P = any> = {
+  type: string;
+  payload?: P;
+};
+
+export const createAction = <P = any>(
+  type: string,
+  payload?: P,
+): Action<P> => (payload ? { type, payload } : { type });

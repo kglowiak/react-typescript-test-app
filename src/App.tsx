@@ -1,3 +1,10 @@
 import React, { FunctionComponent } from 'react';
 
-export const App: FunctionComponent<{}> = () => <div>Hello</div>;
+import { Jobs } from './Jobs/index';
+
+export const App: FunctionComponent<{}> = () => (
+  <div>
+    Hello
+    <Jobs />
+  </div>
+);

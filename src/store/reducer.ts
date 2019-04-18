@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
-import { jobs } from './jobs/reducer';
+import { jobs, JobsState } from './jobs/reducer';
+
+export type AppState = {
+  jobs: JobsState;
+};
 
 const reducers = { jobs };
 
-export const rootReducer = combineReducers(reducers);
+export const rootReducer = combineReducers<AppState>(reducers);
