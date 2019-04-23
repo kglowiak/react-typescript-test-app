@@ -15,7 +15,5 @@ export type Action<P = any> = {
   payload?: P;
 };
 
-export const createAction = <P = any>(
-  type: string,
-  payload?: P,
-): Action<P> => (payload ? { type, payload } : { type });
+export const createAction = <P = any>(type: string, payload?: P): Action<P> =>
+  payload ? { type, payload } : { type };

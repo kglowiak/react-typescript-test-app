@@ -1,42 +1,37 @@
-import React, { Component } from 'react';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import {fetchJobInfo, fetchJobsList} from '../store/jobs/actions';
-import { JobItem } from './JobItem/index';
-import { selectJobs } from '../store/jobs/selectors';
+import { fetchJobsList } from '../store/jobs/actions';
+import { Job } from '../store/jobs/models';
+import { selectJobs, selectJobsLoading } from '../store/jobs/selectors';
 import { AppState } from '../store/reducer';
+import { JobsLayout } from './layout';
 
-export class JobsBase extends Component {
-  componentDidMount(): void {
-    this.props.fetchJobs();
-  }
+export type JobsProps = StateProps & DispatchProps;
 
-  render() {
-    return (
-      <div>
-        {this.props.jobs.map(job => (
-          <JobItem job={job} key={job.id} />
-        ))}
-      </div>
-    );
-  }
-}
+type StateProps = {
+  jobs: Job[];
+  loading: boolean;
+};
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps = (state: AppState): StateProps => ({
   jobs: selectJobs(state),
+  loading: selectJobsLoading(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch) =>
+type DispatchProps = {
+  fetchJobs: () => void;
+};
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps =>
   bindActionCreators(
     {
       fetchJobs: fetchJobsList,
-      fetchJob: fetchJobInfo,
     },
     dispatch,
   );
 
-export const Jobs = connect(
+export const Jobs = connect<StateProps, DispatchProps, {}>(
   mapStateToProps,
   mapDispatchToProps,
-)(JobsBase);
+)(JobsLayout);

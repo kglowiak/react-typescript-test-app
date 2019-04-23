@@ -8,7 +8,7 @@ export type JobsState = {
   jobsList: Job[];
 };
 
-export const initialState: JobsState = {
+const initialState: JobsState = {
   loading: false,
   jobsList: [],
 };
